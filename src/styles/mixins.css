@@ -1,0 +1,22 @@
+@define-mixin typography $font-size, $font-weight, $line-height, $color {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $color;
+}
+
+@define-mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@define-mixin size $height, $width {
+  height: $height;
+  width: $width;
+}
+
+@define-mixin space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

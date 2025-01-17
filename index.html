@@ -5,9 +5,80 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learning Journal</title>
-  </head>
-  <body>
-    <div id="app"></div>
+
+    <!-- google fonts source sans 3 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@400,600,700&display=swap"
+      rel="stylesheet"
+    >
+    <!-- script tag -->
     <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body class="">
+    <header class="header flex-container-nav" role="heading">
+      <div>
+        <img
+          src="/src/images/logo.png"
+          alt="a black speech bubble with a grin"
+        />
+        <h1>My learning journal</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/home.html">Home</a></li>
+          <li><a href="/aboutme.html">About me</a></li>
+        </ul>
+      </nav>
+    </header>
+    <article class="featured-post" aria-labelledby="">
+      <p>JULY 23, 2022</p>
+      <h2>My new journey as a bootcamp student.</h2>
+      <p>
+        As I progress through Scrimba's interactive courses, I'm gradually
+        honing my HTML, CSS, and JavaScript skills, building a solid foundation
+        for my career as a frontend developer. This site uses, Vite, PostCSS,
+        grid and subgrid!
+      </p>
+    </article>
+    <main class="grid-autofit" role="main">
+      <section class="posts subgrid content">
+        <!-- dynamically generated content -->
+        <article class="post">
+          <p>JULY 23, 2022</p>
+          <img src="/src/images/blog-1.png" />
+          <h3>Blog One</h3>
+          <p>
+            I'm excited to start a new learning journey as a Scrimba Bootcamp
+            student! After several months of learning in the Frontend Developer
+            Career Path.
+          </p>
+        </article>
+        <article class="post">
+          <p>JULY 23, 2022</p>
+          <img src="/src/images/blog-2.png" />
+          <h3>Blog Two</h3>
+          <p>
+            I'm excited to start a new learning journey as a Scrimba Bootcamp
+            student! After several months of learning in the Frontend Developer
+            Career Path.
+          </p>
+        </article>
+        <article class="post">
+          <p>JULY 23, 2022</p>
+          <img src="/src/images/blog-3.png" />
+          <h3>Blog Three</h3>
+          <p>
+            I'm excited to start a new learning journey as a Scrimba Bootcamp
+            student! After several months of learning in the Frontend Developer
+            Career Path.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer class="footer" role="contentinfo">
+      <p>&copy; 2022 My Learning Journal</p>
+    </footer>
   </body>
 </html>

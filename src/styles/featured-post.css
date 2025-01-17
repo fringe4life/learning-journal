@@ -1,0 +1,45 @@
+@import 'mixins.css';
+/* typography */
+
+.featured-post {
+    color: #fff;
+    h2 {
+        @mixin typography 2rem, 700, 1.75, #fff; /* line-height converted to unitless value */
+        letter-spacing: -0.03em;
+    }
+    p {
+        line-height: 1.25; /* converted to unitless value */
+        max-width: 60ch;
+    }
+    p:first-of-type {
+        text-transform: uppercase;
+    }
+}
+
+/* layout */
+.featured-post {
+    height: 300px;
+    /* background-image settings */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+        image-set(url(../images/laptop.png) 1x);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 80%;
+    background-blend-mode: multiply;
+
+    /* grid layout */
+    display: grid;
+    grid-template-columns: [full-width-start] var(--gap) [content-start] 1fr [content-end] var(
+            --gap
+        ) [full-width-end];
+    grid-template-rows: 1fr auto auto auto;
+    align-items: end;
+    row-gap: 0.5rem;
+    & > * {
+        grid-column: content;
+    }
+    p:last-of-type {
+        padding-bottom: 20px;
+    }
+}

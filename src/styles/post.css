@@ -1,0 +1,20 @@
+@import "mixins.css";
+/* typography */
+.post {
+	h2 {
+		@mixin typography 1.5rem, 700, 1, inherit;
+	}
+	p {
+		@mixin typography 1rem, 400, 1.25, inherit;
+	}
+}
+
+/* layout */
+.post {
+	grid-column: span 1;
+
+	img {
+		@mixin size 232px, 380px;
+		border-radius: 3px;
+	}
+}

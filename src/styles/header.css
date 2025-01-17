@@ -1,0 +1,42 @@
+@import url(./mixins.css);
+
+.header {
+    /* typography */
+    h1 {
+    font-family: Roboto, sans-serif;
+    @mixin typography 0.875rem, 700, 1.675, #0e0e0e;
+    letter-spacing: -0.03em;
+    margin-left: 2px;
+  }
+
+  a {
+    @mixin typography 0.75rem, 600, 1.26, #090909;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+/* layout */
+
+  grid-column: content;
+  height: var(--header-height);
+  margin-inline: var(--gap);
+  
+
+
+  div {
+    @mixin flex-center;
+  }
+
+  img {
+    @mixin size 25px, 25px;
+  }
+
+  nav {
+    justify-self: end;
+  }
+
+  ul {
+    display: flex;
+    gap: 1em;
+  }
+}
