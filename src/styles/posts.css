@@ -1,0 +1,61 @@
+@import url(/src/styles/mixins.css);
+@custom-media --one-column (width <= calc(310px + (2 * 1.25em)));
+@custom-media --two-columns (calc(310px + (2 * 1.25em)) < width <= calc(2 * 310px + (3 * 1.25em)));
+@custom-media --three-columns (width > calc(2 * 310px + (3 * 1.25em)));
+
+.posts {
+	margin: 50px 0;
+
+	button {
+		@mixin typography 0.875rem, 700, 1.2575, inherit;
+		text-align: center;
+		text-decoration-line: underline;
+		width: min(100%, 150px);
+		border: none;
+		justify-self: center;
+		background-color: inherit;
+		&:active,
+		&:hover {
+			background-color: red;
+		}
+		&[disabled]{
+			background-color: gray;
+            cursor: not-allowed;
+		}
+	}
+}
+/* currently only used with .posts */
+.grid-autofit {
+	display: grid;
+	grid-template-columns: [content-start] repeat(
+			auto-fit,
+			minmax(min(var(--column-size), 100%), 1fr)
+		) [content-end];
+	gap: 2.5em 1.625em;
+	grid-auto-rows: auto;
+	grid-auto-flow: dense;
+	container: grid-container / inline-size;
+}
+/* 380px === column size this will need updating if there is a change to column size */
+/* --gap: 1.25em */
+/* 2 * 1em is for the 1em of padding on the grid autofit */
+/* effectively all of this is styling for tablets.... */
+/* not really needed mostly just for practise */
+/* @container grid-container (
+	inline-size <= calc((310px * 2) + 1.25em + (2 * 1em))
+) and (inline-size > 380px) {
+	.post {
+		/* Styles for when there's only one column */
+/* background-color: red;
+	}
+} */
+
+/* New container query for 3 columns */
+/* also not really needed */
+/* @container grid-container (
+	inline-size >= calc((310px * 3) + (2 * 1.25em) + (2 * 1em))
+) {
+	.grid-autofit {
+		--column-size: 500px;
+	}
+} */

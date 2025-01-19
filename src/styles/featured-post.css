@@ -1,45 +1,53 @@
-@import 'mixins.css';
-/* typography */
+@import "mixins.css";
 
+/* typography */
 .featured-post {
-    color: #fff;
-    h2 {
-        @mixin typography 2rem, 700, 1.75, #fff; /* line-height converted to unitless value */
-        letter-spacing: -0.03em;
-    }
-    p {
-        line-height: 1.25; /* converted to unitless value */
-        max-width: 60ch;
-    }
-    p:first-of-type {
-        text-transform: uppercase;
-    }
+	color: #fff;
+	h2 {
+		/* font-size, font-weight, line-height, color */
+		@mixin typography 2rem, 700, 1.75, #fff; /* line-height converted to unitless value */
+		letter-spacing: -0.03em;
+	}
+	p {
+		line-height: 1.25; /* converted to unitless value */
+		max-width: 60ch;
+	}
+	/* if first p */
+	p:first-of-type {
+		text-transform: uppercase;
+	}
 }
 
 /* layout */
 .featured-post {
-    height: 300px;
-    /* background-image settings */
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-        image-set(url(../images/laptop.png) 1x);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 80%;
-    background-blend-mode: multiply;
+	height: 300px;
+	/* background-image settings */
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+		image-set(url(../images/laptop.png) 1x);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 80%;
+	/* darkens the image so the white text is more readable */
+	background-blend-mode: multiply;
 
-    /* grid layout */
-    display: grid;
-    grid-template-columns: [full-width-start] var(--gap) [content-start] 1fr [content-end] var(
-            --gap
-        ) [full-width-end];
-    grid-template-rows: 1fr auto auto auto;
-    align-items: end;
-    row-gap: 0.5rem;
-    & > * {
-        grid-column: content;
-    }
-    p:last-of-type {
-        padding-bottom: 20px;
-    }
+	/* grid layout */
+	/* from main grid */
+	grid-column: span 3;
+	/* grid to show featured post date, h2, body */
+	display: grid;
+	grid-template-columns: [full-width-start] var(--gap) [content-start] 1fr [content-end] var(
+			--gap
+		) [full-width-end];
+	/* the 1fr is the space above the text */
+	grid-template-rows: 1fr auto auto auto;
+	align-items: end;
+	row-gap: 0.5rem;
+	/* uses the selector .featured-post and selects all immediate descendents */
+	& > * {
+		grid-column: content;
+	}
+	/*  if last p */
+	p:last-of-type {
+		padding-bottom: 20px;
+	}
 }

@@ -1,19 +1,22 @@
 @import url(/src/styles/reset.css) layer(reset);
 @import url(/src/styles/header.css) layer(component.header);
-@import url(/src/styles/main.css) layer(component.main);
 @import url(/src/styles/post.css) layer(component.post);
+@import url(/src/styles/posts.css) layer(component.posts);
 @import url(/src/styles/featured-post.css) layer(component.featured-post);
 @import url(/src/styles/layout.css) layer(layout);
+@import url(/src/styles/footer.css) layer(component.footer);
 @layer reset, base, layout, component;
 @layer base {
 	:root {
 		--gap: 1.25em;
 		--header-height: 3.75rem;
-    --column-size: 380px;
+		--column-size: 310px;
 	}
 	body {
 		font-family: "Source Sans 3", serif;
 		font-weight: 400;
 		font-size: 1rem;
+		max-width: 1085px;
+		margin-inline: auto;
 	}
 }

@@ -5,6 +5,11 @@
   color: $color;
 }
 
+@define-mixin typography-inherit-weight $font-size, $line-height, $color {
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $color;
+}
 @define-mixin flex-center {
   display: flex;
   align-items: center;

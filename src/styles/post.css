@@ -1,20 +1,27 @@
 @import "mixins.css";
-/* typography */
+
 .post {
+	/* typography */
 	h2 {
 		@mixin typography 1.5rem, 700, 1, inherit;
 	}
 	p {
-		@mixin typography 1rem, 400, 1.25, inherit;
+		@mixin typography-inherit-weight 1rem, 1.25, inherit;
 	}
-}
-
-/* layout */
-.post {
+	/* layout */
 	grid-column: span 1;
 
 	img {
-		@mixin size 232px, 380px;
+		@mixin size 232px, 100%;
 		border-radius: 3px;
+		object-position: center;
+	}
+	/* adds variable spacing  */
+	img,
+	p:first-of-type {
+		margin-bottom: 0.875em;
+	}
+	h2 {
+		margin-bottom: 0.5em;
 	}
 }

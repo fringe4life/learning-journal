@@ -1,0 +1,18 @@
+@import "mixins.css";
+.footer {
+	grid-column: full-width;
+	background-color: #202020;
+
+	text-align: center;
+	p:first-of-type {
+		@mixin typography 0.75rem, 700, 1.08, #fff;
+		letter-spacing: -0.03em;
+	}
+	p:last-of-type {
+		@mixin typography 0.75rem, 400, 1.25, #fff;
+	}
+
+	div {
+		padding: 37px 0;
+	}
+}
