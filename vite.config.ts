@@ -8,6 +8,11 @@ import postcssPresetEnv  from 'postcss-preset-env'
 export default defineConfig({
   plugins: [],
   build: {
+    minify: 'terser', // or 'esbuild'
+    terserOptions: {
+      compress: false,
+      mangle: false,
+    },
     rollupOptions: {
       input: {
         main: 'src/main.ts',

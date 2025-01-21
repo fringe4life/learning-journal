@@ -1,6 +1,7 @@
 import './style.css'
 import {type Post, posts } from './data.ts'
 // import images in to make build process as simple as possible
+
 const images = import.meta.glob('/src/images/*.(png|jpg|jpeg|svg|gif)', { eager: true });
 
 /**
@@ -39,7 +40,8 @@ function renderPosts(posts: Post[],button: HTMLButtonElement): void {
         article.classList.add('post');
 
         const img = document.createElement('img');
-        img.src = post.imgSrc;
+        const imagePath = `/src/images/${post.imgSrc}`;
+        img.src = (images[imagePath] as { default: string }).default;
         img.alt = post.imgAlt;
 
         const dateP = document.createElement('p');
@@ -76,20 +78,20 @@ function isButton(elem: HTMLElement): elem is HTMLButtonElement{
  * @abstract used to avoid type assertions on unknown objects
  * @param post is the post to check 
  * @returns that the post is a valid post
- * */
-export function isPost(post: unknown): post is Post {
-    return (
-        typeof post === 'object' &&
-        post !== null &&
-        'imgSrc' in post &&
-        'imgAlt' in post &&
-        'title' in post &&
-        'date' in post &&
-        'body' in post &&
-        typeof (post ).imgSrc === 'string' &&
-        typeof (post ).imgAlt === 'string' &&
-        typeof (post ).title === 'string' &&
-        typeof (post ).date === 'string' &&
-        typeof (post ).body === 'string'
-    );
-}
+//  * */
+// export function isPost(post: unknown): post is Post {
+//     return (
+//         typeof post === 'object' &&
+//         post !== null &&
+//         'imgSrc' in post &&
+//         'imgAlt' in post &&
+//         'title' in post &&
+//         'date' in post &&
+//         'body' in post &&
+//         typeof (post ).imgSrc === 'string' &&
+//         typeof (post ).imgAlt === 'string' &&
+//         typeof (post ).title === 'string' &&
+//         typeof (post ).date === 'string' &&
+//         typeof (post ).body === 'string'
+//     );
+// }

@@ -53,7 +53,7 @@
 	}
 	/*  if last p */
 	p:last-of-type {
-		padding-bottom: 20px;
+		padding-bottom: 1.25em;
 	}
 }
 /* make the line height smaller as otherwise when the h2 wraps to the next line enormous gap between the wrapped text */
