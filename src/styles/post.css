@@ -27,6 +27,7 @@
 	}
 }
 /* uses custom media query */
+
 @media (--medium-width) {
 	.main-grid {
 		--post-img-height: 320px;
