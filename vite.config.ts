@@ -1,6 +1,6 @@
 // initial vite configuration
 import { defineConfig } from 'vite'
-// import { resolve } from 'node:path'
+import { resolve } from 'node:path'
 import postcssImport from 'postcss-import'
 import postcssMixins from 'postcss-mixins'
 import postcssFunctions from 'postcss-functions'
@@ -15,7 +15,7 @@ export default defineConfig({
     },
     rollupOptions: {
       input: {
-        main: 'src/main.ts',
+        main: resolve(__dirname, 'index.html'), // Specify the entry point
       },
       output: {
         dir: 'dist',
