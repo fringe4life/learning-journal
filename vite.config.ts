@@ -8,7 +8,7 @@ import postcssPresetEnv  from 'postcss-preset-env'
 export default defineConfig({
   plugins: [],
   build: {
-    minify: 'terser', // or 'esbuild'
+    minify: true, // or 'esbuild'
     terserOptions: {
       compress: false,
       mangle: false,
@@ -37,5 +37,9 @@ export default defineConfig({
             }),
         ]
     }
+  },
+  esbuild: {
+    legalComments: 'none',
+    target: 'es2021',
   }
 })
