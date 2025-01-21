@@ -1,5 +1,7 @@
 import './style.css'
 import {type Post, posts } from './data.ts'
+// import images in to make build process as simple as possible
+const images = import.meta.glob('/src/images/*.(png|jpg|jpeg|svg|gif)', { eager: true });
 
 /**
  * @abstract this function is used to assert that a value cannot be reached.

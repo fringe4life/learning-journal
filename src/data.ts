@@ -8,7 +8,7 @@ export interface Post {
 
 export const posts: Post[] = [
     {
-        imgSrc: "/src/images/blog-1.png",
+        imgSrc: "/src/images/blog-6.jpg",
         imgAlt: "Laptop on a desk with code editor open",
         title: "My new journey as a bootcamp student.",
         date: "JULY 23, 2022",

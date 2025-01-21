@@ -6,6 +6,7 @@
 @import url(/src/styles/layout.css) layer(layout);
 @import url(/src/styles/footer.css) layer(component.footer);
 @import url(/src/styles/utilities.css) layer(utilities);
+@import url(/src/styles/aboutme.css) layer(component.aboutme);
 @layer reset, base, layout, component, utilities;
 @layer base {
 	:root {
@@ -21,6 +22,7 @@
 		/* should be increased at wider screens... */
 		--post-img-height: 232px;
 		--background-img-height: var(--post-img-height);
+		--background-img-width: 100%;
 		/* used more as a const currently */
 		--background-img-gradient: linear-gradient(
 			rgba(0, 0, 0, 0.5),
@@ -28,10 +30,13 @@
 		);
 		--cards-my-large: 2.25em 0;
 		--uppercase: uppercase;
+		--character-max-width: 60ch;
+		--font-color: #151515;
 	}
 	body {
 		font-family: "Source Sans 3", serif;
 		font-weight: 400;
+		color: var(--font-color);
 		font-size: 1rem;
 		max-width: 1085px;
 		margin-inline: auto;

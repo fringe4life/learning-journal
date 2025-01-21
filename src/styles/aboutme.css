@@ -1,0 +1,40 @@
+.aboutme {
+}
+
+.aboutme-grid {
+	display: grid;
+	container: aboutme / inline-size;
+	--background-img-width: 182px;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: [content-start image-start] var(--background-img-width) [image-end text-start] 1fr [text-end content-end];
+	gap: var(--gap);
+	div {
+		grid-row: 1 / -1;
+	}
+	h1 {
+		align-self: end;
+		grid-column: text;
+		grid-row: 1;
+	}
+	p {
+		grid-column: text;
+		grid-row: 2;
+	}
+}
+@media (width < 800px) {
+	.aboutme-grid {
+		grid-template-rows: auto;
+	}
+	.aboutme-grid div {
+		grid-row: 1;
+	}
+	.aboutme-grid h1 {
+		align-self: unset;
+		grid-column: 1 / -1;
+		grid-row: 2;
+	}
+	.aboutme-grid p {
+		grid-column: 1 / -1;
+		grid-row: 3;
+	}
+}

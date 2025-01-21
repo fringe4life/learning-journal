@@ -6,6 +6,16 @@
 	margin: var(--cards-my-large); /* 34px converted to em (34px / 16px = 2.125em) */
 }
 
+.circle {
+	border-radius: 50%;
+}
+
+.p-margin-medium {
+	p ~ p {
+		margin-top: 1em;
+	}
+}
+
 /* Example conversion for 54px:
    54px / 16px = 3.375em
 */

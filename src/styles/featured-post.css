@@ -3,23 +3,21 @@
 /* typography */
 .featured-post {
 	container: featured / inline-size;
-	color: #fff;
-	h2 {
+	color: var(--font-color, #fff);
+	h2,
+	h1 {
 		/* font-size, font-weight, line-height, color */
-		@mixin typography 2rem, 700, 1.75, #fff; /* line-height converted to unitless value */
+		@mixin typography 2rem, 700, 1.75, var(--font-color); /* line-height converted to unitless value */
 		letter-spacing: -0.03em;
 	}
 	p {
 		line-height: 1.25; /* converted to unitless value */
-		max-width: 60ch;
+		max-width: var(--character-max-width);
 	}
 	/* if first p */
 	p:first-of-type {
 		/* space toggle for featured post */
 		text-transform: var(--uppercase, uppercase);
-	}
-	p ~ p {
-		margin-top: 1em;
 	}
 }
 
@@ -36,13 +34,8 @@
 	background-position: 50% 80%;
 	/* darkens the image so the white text is more readable */
 	background-blend-mode: multiply;
-	height: var(--background-img-height, 300px);
-	width: 100%;
-}
-@media (--medium-width) {
-	.main-grid {
-		--background-img-height: 320px;
-	}
+	height: var(--background-img-height, 232px);
+	width: var(--background-img-width, 100%);
 }
 
 /* layout */
@@ -65,7 +58,22 @@
 }
 /* make the line height smaller as otherwise when the h2 wraps to the next line enormous gap between the wrapped text */
 @container featured (width < 70ch) {
-	.featured-post h2 {
+	.featured-post h2,
+	.featured-post h1 {
 		line-height: 1.15;
 	}
 }
+@media (--medium-width) {
+	.main-grid {
+		--background-img-height: 320px;
+	}
+}
+/* @container featured (width > 70ch) {
+	.featured-post h1 {
+		line-height: 1.15;
+		
+		grid-column: conten;
+		align-self: center;
+		translate: -60px;
+	}
+} */

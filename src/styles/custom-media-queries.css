@@ -1,4 +1,4 @@
-@custom-media --one-column (width <= calc(310px + (2 * 1.25em)));
+@custom-media --greater-one-column (width > calc(310px + (2 * 1.25em)));
 @custom-media --two-columns (calc(310px + (2 * 1.25em)) < width <= calc(2 * 310px + (3 * 1.25em)));
 @custom-media --three-columns (width > calc(2 * 310px + (3 * 1.25em)));
 

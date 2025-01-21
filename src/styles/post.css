@@ -1,5 +1,6 @@
 @import "mixins.css";
 @import "custom-media-queries.css";
+/* class should probably be the other way around.... */
 .post--card {
 	/* typography */
 	h2 {
@@ -25,6 +26,7 @@
 		margin-bottom: 0.5em;
 	}
 }
+/* uses custom media query */
 @media (--medium-width) {
 	.main-grid {
 		--post-img-height: 320px;
