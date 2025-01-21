@@ -32,7 +32,11 @@
         </ul>
       </nav>
     </header>
-    <article class="featured-post full" aria-labelledby="">
+    <!-- prettier-ignore-start -->
+    <article
+      class="featured-post full invert"
+      aria-labelledby=""
+    >
       <p>JULY 23, 2022</p>
       <h2>My new journey as a bootcamp student.</h2>
       <p>
@@ -42,81 +46,34 @@
         grid and subgrid!
       </p>
     </article>
+    <div role="img" class="featured-background-img content"></div>
     <main class="content main" role="main">
-      <section class="posts grid-autofit">
-        <!-- dynamically generated content -->
-        <article class="post">
-          <img src="/src/images/blog-1.png" />
-          <p>JULY 23, 2022</p>
-          <h3>Container Queries</h3>
-          <p>
-            I practised on this site using container queries. As an example to
-            detect whether there were three auto-fit columns, then I used
-            calc((310px * 3) + (2 * 1.25em) + (2 * 1em). What this does is take
-            the column size, 310px and multiplies it by 3 and then adds in the
-            gaps and margins.
-          </p>
-        </article>
-        <article class="post">
-          <img src="/src/images/blog-2.png" />
-          <p>JULY 23, 2022</p>
-          <h3>Descendant Selector</h3>
-          <p>
-            Another thing that I used to achieve this layout was to use the
-            descendent selector for setting grid columns. An immediate child of
-            a grid could have the class 'full' or 'content' added to them to
-            enable them to take up the full width, e.g. the featured post or
-            limit them to the content area of the grid for everything else.
-          </p>
-        </article>
-        <article class="post">
-          <img src="/src/images/blog-3.png" />
-          <p>JULY 23, 2022</p>
-          <h3>@import</h3>
-          <p>
-            I broke the CSS for this website up into a series of files to be
-            imported into the main.css file. This enables me to find the
-            particular component or area of the site quickly. For instance,
-            there is a header.css, footer.css, post.css etc.
-          </p>
-        </article>
-        <article class="post">
-          <img src="/src/images/blog-3.png" />
-          <p>JULY 23, 2022</p>
-          <h3>PostCSS</h3>
-          <p>
-            On this website I used PostCSS to create a Mixin for typography in
-            particular as there is so much commonalities for almost all text on
-            this page. All the various text has font-weight, font-size,
-            line-height and color so a Mixin was made to simply @mixin the
-            typography and get the font related CSS to a single line.
-          </p>
-        </article>
-        <article class="post">
-          <img src="/src/images/blog-3.png" />
-          <p>JULY 23, 2022</p>
-          <h3>Grid autofit</h3>
-          <p>
-            On this website there is an auto-fit to display the post card so
-            when the screen grows in size more columns are added automatically
-            to add new posts instead of having to use @media or @container to
-            figure out each individual place to put the post card. The
-            individual post cards then span 1 column each!
-          </p>
-        </article>
-        <article class="post">
-          <img src="/src/images/blog-3.png" />
-          <p>JULY 23, 2022</p>
-          <h3>Flexbox</h3>
-          <p>
-            For the header I briefly tried to use Grid. However, grid was not
-            that great a fit for a 2d layout like that and so I chose to use
-            flexbox with justify-content: space-between; to get them to go to
-            either end of their space from the main grid which limited them to
-            the content part of the grid.
-          </p>
-        </article>
-        <button class="content" id="view-more">View more</button>
+      <section class="featured-post invert" style="--uppercase: var(--OFF)">
+        <h2>How I stay committed to learning</h2>
+        <p>
+          I like to think of myself as a lifelong learner. I used to spend hours
+          and hours learning, then try to create simple projects using what I
+          learned or work new techniques into existing projects.
+        </p>
+        <p>
+          For example, in this project I have experimented with the <a
+            href="https://www.youtube.com/watch?v=ZuZizqDF4q8"
+          >Space Toggle</a> idea in CSS. What the Space Toggle does is enable a
+          rudimentary type of <strong>if else</strong> statement in CSS. On this
+          page for instance, I set the custom property controlling the
+          background-image to an empty space which invalidated it at run time.
+        </p>
+        <p>
+          After this I used another <strong>if else</strong> logic to change the
+          color of the text by checking if the background-image was set or not.
+          If it was not set then the color would be inverted, as originally the
+          color was white to make it visible over the image.
+        </p>
+        <p>
+          That helped me further my CSS skills through applying new things, and
+          I realized that posting my learning summaries was also helping others
+          learn and stay motivated.
+        </p>
       </section>
     </main>
     <footer class="footer" role="contentinfo">

@@ -1,16 +1,11 @@
 @import url(/src/styles/mixins.css);
-@custom-media --one-column (width <= calc(310px + (2 * 1.25em)));
-@custom-media --two-columns (calc(310px + (2 * 1.25em)) < width <= calc(2 * 310px + (3 * 1.25em)));
-@custom-media --three-columns (width > calc(2 * 310px + (3 * 1.25em)));
 
-.posts {
-	margin: 50px 0;
-
+.cards {
 	button {
 		@mixin typography 0.875rem, 700, 1.2575, inherit;
 		text-align: center;
 		text-decoration-line: underline;
-		width: min(100%, 150px);
+		width: min(150px, 100%);
 		border: none;
 		justify-self: center;
 		background-color: inherit;
@@ -18,13 +13,13 @@
 		&:hover {
 			background-color: red;
 		}
-		&[disabled]{
+		&[disabled] {
 			background-color: gray;
-            cursor: not-allowed;
+			cursor: not-allowed;
 		}
 	}
 }
-/* currently only used with .posts */
+/* currently only used with .cards */
 .grid-autofit {
 	display: grid;
 	grid-template-columns: [content-start] repeat(
@@ -34,7 +29,8 @@
 	gap: 2.5em 1.625em;
 	grid-auto-rows: auto;
 	grid-auto-flow: dense;
-	container: grid-container / inline-size;
+	/* not currently needed */
+	/* container: grid-container / inline-size; */
 }
 /* 380px === column size this will need updating if there is a change to column size */
 /* --gap: 1.25em */

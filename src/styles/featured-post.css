@@ -1,7 +1,8 @@
 @import "mixins.css";
-
+@import "custom-media-queries.css";
 /* typography */
 .featured-post {
+	container: featured / inline-size;
 	color: #fff;
 	h2 {
 		/* font-size, font-weight, line-height, color */
@@ -14,34 +15,45 @@
 	}
 	/* if first p */
 	p:first-of-type {
-		text-transform: uppercase;
+		/* space toggle for featured post */
+		text-transform: var(--uppercase, uppercase);
+	}
+	p ~ p {
+		margin-top: 1em;
 	}
 }
 
-/* layout */
-.featured-post {
-	height: 300px;
+/* seperated background image to own class */
+/* solved a lot of issues, class below is where it used to be  */
+.featured-background-img {
 	/* background-image settings */
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-		image-set(url(../images/laptop.png) 1x);
+	/* the use of --background-img is 
+	/* to enable the space toggle trick */
+	/* not sure if trick will continuse to be used??? */
+	background-image: var(--background-img);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: 50% 80%;
 	/* darkens the image so the white text is more readable */
 	background-blend-mode: multiply;
+	height: var(--background-img-height, 300px);
+	width: 100%;
+}
+@media (--medium-width) {
+	.main-grid {
+		--background-img-height: 320px;
+	}
+}
 
-	/* grid layout */
-	/* from main grid */
-	grid-column: span 3;
+/* layout */
+.featured-post {
 	/* grid to show featured post date, h2, body */
 	display: grid;
-	grid-template-columns: [full-width-start] var(--gap) [content-start] 1fr [content-end] var(
-			--gap
-		) [full-width-end];
+	grid-template-columns: [full-width-start] 0px [content-start] 1fr [content-end] 0px [full-width-end];
 	/* the 1fr is the space above the text */
 	grid-template-rows: 1fr auto auto auto;
 	align-items: end;
-	row-gap: 0.5rem;
+	gap: 0.5rem var(--gap);
 	/* uses the selector .featured-post and selects all immediate descendents */
 	& > * {
 		grid-column: content;
@@ -49,5 +61,11 @@
 	/*  if last p */
 	p:last-of-type {
 		padding-bottom: 20px;
+	}
+}
+/* make the line height smaller as otherwise when the h2 wraps to the next line enormous gap between the wrapped text */
+@container featured (width < 70ch) {
+	.featured-post h2 {
+		line-height: 1.15;
 	}
 }

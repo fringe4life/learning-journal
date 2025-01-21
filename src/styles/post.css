@@ -1,6 +1,6 @@
 @import "mixins.css";
-
-.post {
+@import "custom-media-queries.css";
+.post--card {
 	/* typography */
 	h2 {
 		@mixin typography 1.5rem, 700, 1, inherit;
@@ -12,7 +12,7 @@
 	grid-column: span 1;
 
 	img {
-		@mixin size 232px, 100%;
+		@mixin size var(--post-img-height), 100%;
 		border-radius: 3px;
 		object-position: center;
 	}
@@ -23,5 +23,10 @@
 	}
 	h2 {
 		margin-bottom: 0.5em;
+	}
+}
+@media (--medium-width) {
+	.main-grid {
+		--post-img-height: 320px;
 	}
 }

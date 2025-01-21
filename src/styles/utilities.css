@@ -1,0 +1,11 @@
+.invert {
+	filter: invert(1);
+}
+
+.my-large {
+	margin: var(--cards-my-large); /* 34px converted to em (34px / 16px = 2.125em) */
+}
+
+/* Example conversion for 54px:
+   54px / 16px = 3.375em
+*/

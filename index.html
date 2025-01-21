@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- meta tags -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title tag -->
     <title>Learning Journal</title>
-
+    <!-- css is imported in main.ts -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <!-- google fonts source sans 3 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,7 +35,7 @@
       </nav>
     </header>
     <a href="/featured-article.html " class="full">
-      <article class="featured-post" aria-labelledby="">
+      <article class="featured-post featured-background-img" aria-labelledby="">
         <p>JULY 23, 2022</p>
         <h2>My new journey as a bootcamp student.</h2>
         <p>
@@ -45,9 +47,9 @@
       </article>
     </a>
     <main class="content main" role="main">
-      <section class="posts grid-autofit">
+      <section class="cards grid-autofit my-large ">
         <!-- dynamically generated content -->
-        <article class="post">
+        <article class="post--card">
           <img src="/src/images/blog-1.png" />
           <p>JULY 23, 2022</p>
           <h3>Container Queries</h3>
@@ -59,7 +61,7 @@
             gaps and margins.
           </p>
         </article>
-        <article class="post">
+        <article class="post--card">
           <img src="/src/images/blog-2.png" />
           <p>JULY 23, 2022</p>
           <h3>Descendant Selector</h3>
@@ -67,11 +69,11 @@
             Another thing that I used to achieve this layout was to use the
             descendent selector for setting grid columns. An immediate child of
             a grid could have the class 'full' or 'content' added to them to
-            enable them to take up the full width, e.g. the featured post or
+            enable them to take up the full width, e.g. the featured --card or
             limit them to the content area of the grid for everything else.
           </p>
         </article>
-        <article class="post">
+        <article class="post--card">
           <img src="/src/images/blog-3.png" />
           <p>JULY 23, 2022</p>
           <h3>@import</h3>
@@ -79,10 +81,10 @@
             I broke the CSS for this website up into a series of files to be
             imported into the main.css file. This enables me to find the
             particular component or area of the site quickly. For instance,
-            there is a header.css, footer.css, post.css etc.
+            there is a header.css, footer.css, --card.css etc.
           </p>
         </article>
-        <article class="post">
+        <article class="post--card">
           <img src="/src/images/blog-3.png" />
           <p>JULY 23, 2022</p>
           <h3>PostCSS</h3>
@@ -94,7 +96,7 @@
             typography and get the font related CSS to a single line.
           </p>
         </article>
-        <article class="post">
+        <article class="post--card">
           <img src="/src/images/blog-3.png" />
           <p>JULY 23, 2022</p>
           <h3>Grid autofit</h3>
@@ -106,7 +108,7 @@
             individual post cards then span 1 column each!
           </p>
         </article>
-        <article class="post">
+        <article class="post--card">
           <img src="/src/images/blog-3.png" />
           <p>JULY 23, 2022</p>
           <h3>Flexbox</h3>

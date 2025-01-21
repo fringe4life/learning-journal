@@ -1,6 +1,5 @@
 @import url(/src//styles/mixins.css);
-
-@custom-media --medium-width (width > calc(2 * 310px + (2 * 1.25em) + 1em));
+@import url(/src/styles/custom-media-queries.css);
 /* main layout */
 .main-grid {
 	display: grid;
@@ -8,34 +7,32 @@
 	/* effectively the 0px column are equivalent to . in grid-areas */
 	grid-template-columns: [full-width-start] 0px [content-start] auto [content-end] 0px [full-width-end];
 }
-@media (--medium-width) {
-	.main-grid {
-		--gap: 2em;
-	}
-}
 
-.main-grid,
-.subgrid {
+.main-grid {
 	/* applies full-width --if-- is an immediate child of one of the grid containers */
 	& > .full {
 		grid-column: full-width;
 	}
+}
+
+/* makes sure no one tries to apply full to .grid-autofit... */
+.grid-autofit,
+.main-grid {
 	& > .content {
 		grid-column: content;
 	}
 }
 
-.grid-autofit {
-	& > .content {
-		grid-column: content;
-	}
-}
-
-.subgrid {
+/* .subgrid {
 	display: grid;
 	grid-template-columns: subgrid;
-}
+} */
 
 .flex-container-nav {
 	@mixin space-between;
+}
+@media (--medium-width) {
+	.main-grid {
+		--gap: 2em;
+	}
 }

@@ -1,5 +1,10 @@
 import './style.css'
 import {type Post, posts } from './data.ts'
+
+/**
+ * @abstract this function is used to assert that a value cannot be reached.
+ * @param x the value that should not be reached
+ * */
 function assertNever(x: string): never {
     throw new Error(`You have added a new button but not added it to the switch statement: ${x}`);
 }
@@ -48,7 +53,7 @@ function renderPosts(posts: Post[],button: HTMLButtonElement): void {
         article.appendChild(dateP);
         article.appendChild(titleH2);
         article.appendChild(bodyP);
-
+        // inserts before the button..
         postsContainer.insertBefore(article, button);
     }
 
@@ -64,13 +69,13 @@ function isButton(elem: HTMLElement): elem is HTMLButtonElement{
    return  elem.tagName.toLowerCase() === 'button'
 }
 
-
+// practise
 /**
  * @abstract used to avoid type assertions on unknown objects
  * @param post is the post to check 
  * @returns that the post is a valid post
  * */
-function isPost(post: unknown): post is Post {
+export function isPost(post: unknown): post is Post {
     return (
         typeof post === 'object' &&
         post !== null &&
