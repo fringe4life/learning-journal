@@ -21,7 +21,7 @@
 		--ON: initial;
 		/* should be increased at wider screens... */
 		--post-img-height: 232px;
-		--background-img-height: var(--post-img-height);
+		--background-img-height: 320px;
 		--background-img-width: 100%;
 		/* used more as a const currently */
 		--background-img-gradient: linear-gradient(

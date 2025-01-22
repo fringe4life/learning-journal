@@ -30,19 +30,24 @@ a:has(> .featured-post) {
 
 /* seperated background image to own class */
 /* solved a lot of issues, class below is where it used to be  */
+/* Base class for featured background image */
 .featured-background-img {
-	/* background-image settings */
-	/* the use of --background-img is 
-	/* to enable the space toggle trick */
-	/* not sure if trick will continuse to be used??? */
-	background-image: var(--background-img);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: 50% 80%;
-	/* darkens the image so the white text is more readable */
-	background-blend-mode: multiply;
 	height: var(--background-img-height, 232px);
 	width: var(--background-img-width, 100%);
+}
+
+/* Modifier class for background image with gradient */
+.featured-background-img--with-gradient {
+	background-image: var(--background-img-gradient), var(--background-img);
+	background-blend-mode: multiply;
+}
+
+/* Modifier class for background image without gradient */
+.featured-background-img--without-gradient {
+	background-image: var(--background-img);
 }
 
 /* layout */
@@ -54,14 +59,10 @@ a:has(> .featured-post) {
 	/* the 1fr is the space above the text */
 	grid-template-rows: 1fr auto auto auto;
 	align-items: end;
-	gap: 0.5rem var(--gap);
+	gap: .75rem var(--gap);
 	/* uses the selector .featured-post and selects all immediate descendents */
 	& > * {
 		grid-column: content;
-	}
-	/*  if last p */
-	p:last-of-type {
-		padding-bottom: 1.25em;
 	}
 }
 /* make the line height smaller as otherwise when the h2 wraps to the next line enormous gap between the wrapped text */
