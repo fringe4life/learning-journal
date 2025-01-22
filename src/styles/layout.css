@@ -28,10 +28,8 @@
 .inner-grid {
 	display: grid;
 	grid-template-columns:
-		[full-width-start] 0px
 		[content-text-start] 1fr
-		[content-text-end] 0px
-		[full-width-end];
+		[content-text-end];
 	gap: .75rem var(--gap);
 	& > * {
 		grid-column: content-text;
