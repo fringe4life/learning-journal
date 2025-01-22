@@ -6,13 +6,24 @@ import postcssMixins from 'postcss-mixins'
 import postcssFunctions from 'postcss-functions'
 import postcssPresetEnv  from 'postcss-preset-env'
 import fs from 'node:fs'
-// Function to get all HTML files in the root directory
-function getHtmlFiles(dir: string) {
-  return fs.readdirSync(dir).filter(file => file.endsWith('.html'))
+
+// Define a type for web development-related file extensions
+type WebFileExtension = '.html' | '.css' | '.js' | '.ts' | '.jsx' | '.tsx' | '.json' | '.svg' | '.png' | '.jpg' | '.jpeg' | '.gif';
+
+
+// Function to get all files of a specific type in the root directory
+/**
+ * @param dir the directory path to get files from
+ * @param extension the file extension to filter by (e.g., '.html', '.js')
+ * @returns all the files with the specified extension in the given directory
+ */
+function getFiles(dir: string, extension: WebFileExtension): string[] {
+  return fs.readdirSync(dir).filter(file => file.endsWith(extension))
 }
 
 export default defineConfig({
   plugins: [],
+
   build: {
     minify: true, // or 'esbuild'
     terserOptions: {
@@ -20,7 +31,7 @@ export default defineConfig({
       mangle: false,
     },
     rollupOptions: {
-      input: getHtmlFiles(__dirname).reduce((acc, file) => {
+      input: getFiles(__dirname, '.html').reduce((acc, file) => {
         acc[file.replace('.html', '')] = resolve(__dirname, file)
         return acc
       }, {} as Record<string, string>),

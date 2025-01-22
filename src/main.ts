@@ -1,25 +1,13 @@
 import './style.css'
-import {type Post, posts } from './data.ts'
-// import images in to make build process as simple as possible
-
-// Define the type for the image module
-type ImageModule = { default: string };
-
-// Type guard for ImageModule
-function isImageModule(value: unknown): value is ImageModule {
-    return typeof value === 'object' && value !== null && 'default' in value && typeof (value as ImageModule).default === 'string';
-}
+import { type Post, posts } from './data.ts'
+import {type ImageModule, isImageModule, isButton, assertNever } from './typeHelpers.ts'
 
 // Update the type of the images import
 const images: Record<string, ImageModule> = import.meta.glob('/src/images/*.(png|jpg|jpeg|svg|gif)', { eager: true });
-/**
- * @abstract this function is used to assert that a value cannot be reached.
- * @param x the value that should not be reached
- * */
-function assertNever(x: string): never {
-    throw new Error(`You have added a new button but not added it to the switch statement: ${x}`);
-}
 
+/**
+ * listens for click events on the document
+ */
 document.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
     console.log('Clicked element:', target);
@@ -43,7 +31,7 @@ document.addEventListener('click', (e) => {
 });
 
 
-function renderPosts(posts: Post[], button: HTMLButtonElement): void {
+export function renderPosts(posts: Post[], button: HTMLButtonElement): void {
     console.log('renderPosts function called');
     //need to create the HTML elements and append them to the DOM
     const postsContainer = document.querySelector('.cards');
@@ -58,7 +46,7 @@ function renderPosts(posts: Post[], button: HTMLButtonElement): void {
         console.log('Creating post:', post.title);
         const article = document.createElement('article');
         article.classList.add('post--card');
-        
+
         const img = document.createElement('img');
         const imagePath = `/src/images/${post.imgSrc}`;
         console.log('Attempting to load image:', imagePath);
@@ -96,36 +84,4 @@ function renderPosts(posts: Post[], button: HTMLButtonElement): void {
     console.log('All posts rendered');
 }
 
-/**
- * @abstract used to avoid type assertions on unknown elements
- * @param elem is the HTML element to check 
- * @returns that the element is a button
- */
-function isButton(elem: HTMLElement): elem is HTMLButtonElement {
-   console.log('Element tag:', elem.tagName.toLowerCase());
-   console.log('Is button:', elem.tagName.toLowerCase() === 'button');
-   return elem.tagName.toLowerCase() === 'button';
-}
-
-// practise
-/**
- * @abstract used to avoid type assertions on unknown objects
- * @param post is the post to check 
- * @returns that the post is a valid post
-//  * */
-// export function isPost(post: unknown): post is Post {
-//     return (
-//         typeof post === 'object' &&
-//         post !== null &&
-//         'imgSrc' in post &&
-//         'imgAlt' in post &&
-//         'title' in post &&
-//         'date' in post &&
-//         'body' in post &&
-//         typeof (post ).imgSrc === 'string' &&
-//         typeof (post ).imgAlt === 'string' &&
-//         typeof (post ).title === 'string' &&
-//         typeof (post ).date === 'string' &&
-//         typeof (post ).body === 'string'
-//     );
-// }
+// If you have any other functions or variables that need to be tested, export them here
