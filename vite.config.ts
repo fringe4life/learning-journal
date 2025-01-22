@@ -5,6 +5,12 @@ import postcssImport from 'postcss-import'
 import postcssMixins from 'postcss-mixins'
 import postcssFunctions from 'postcss-functions'
 import postcssPresetEnv  from 'postcss-preset-env'
+import fs from 'node:fs'
+// Function to get all HTML files in the root directory
+function getHtmlFiles(dir: string) {
+  return fs.readdirSync(dir).filter(file => file.endsWith('.html'))
+}
+
 export default defineConfig({
   plugins: [],
   build: {
@@ -14,11 +20,10 @@ export default defineConfig({
       mangle: false,
     },
     rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        aboutme: resolve(__dirname, 'aboutme.html'),
-        featuredPost: resolve(__dirname, 'featured-article.html'),
-      },
+      input: getHtmlFiles(__dirname).reduce((acc, file) => {
+        acc[file.replace('.html', '')] = resolve(__dirname, file)
+        return acc
+      }, {} as Record<string, string>),
       output: {
         dir: 'dist',
         format: 'esm',

@@ -2,8 +2,16 @@ import './style.css'
 import {type Post, posts } from './data.ts'
 // import images in to make build process as simple as possible
 
-const images = import.meta.glob('/src/images/*.(png|jpg|jpeg|svg|gif)', { eager: true });
+// Define the type for the image module
+type ImageModule = { default: string };
 
+// Type guard for ImageModule
+function isImageModule(value: unknown): value is ImageModule {
+    return typeof value === 'object' && value !== null && 'default' in value && typeof (value as ImageModule).default === 'string';
+}
+
+// Update the type of the images import
+const images: Record<string, ImageModule> = import.meta.glob('/src/images/*.(png|jpg|jpeg|svg|gif)', { eager: true });
 /**
  * @abstract this function is used to assert that a value cannot be reached.
  * @param x the value that should not be reached
@@ -50,18 +58,19 @@ function renderPosts(posts: Post[], button: HTMLButtonElement): void {
         console.log('Creating post:', post.title);
         const article = document.createElement('article');
         article.classList.add('post--card');
-
+        
         const img = document.createElement('img');
         const imagePath = `/src/images/${post.imgSrc}`;
         console.log('Attempting to load image:', imagePath);
         console.log('Available images:', Object.keys(images));
 
-        if (imagePath in images) {
-            img.src = (images[imagePath] as { default: string }).default;
+        const imageModule = images[imagePath];
+        if (isImageModule(imageModule)) {
+            img.src = imageModule.default;
             console.log('Image loaded successfully:', img.src);
         } else {
-            console.error('Image not found:', imagePath);
-            img.src = 'path/to/placeholder-image.jpg'; // Replace with an actual placeholder image path
+            console.error('Image not found or invalid:', imagePath);
+            img.src = '/src/images/placeholder.jpg'; // Replace with an actual placeholder image path
         }
         img.alt = post.imgAlt;
 
