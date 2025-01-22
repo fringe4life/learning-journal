@@ -62,6 +62,15 @@ a:has(> .featured-post) {
 
 	/* uses the selector .featured-post and selects all immediate descendents */
 }
+
+.inner-grid {
+	display: grid;
+	grid-template-columns:
+		[content-text-start] 1fr
+		[content-text-end];
+	gap: .75rem var(--gap);
+}
+
 /* make the line height smaller as otherwise when the h2 wraps to the next line enormous gap between the wrapped text */
 @container featured (width < 70ch) {
 	.featured-post h2,

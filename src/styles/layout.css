@@ -25,16 +25,7 @@
 	}
 }
 
-.inner-grid {
-	display: grid;
-	grid-template-columns:
-		[content-text-start] 1fr
-		[content-text-end];
-	gap: .75rem var(--gap);
-	& > * {
-		grid-column: content-text;
-	}
-}
+
 
 /* makes sure no one tries to apply full to .grid-autofit... */
 .grid-autofit,

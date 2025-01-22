@@ -48,6 +48,7 @@ export function renderPosts(posts: Post[], button: HTMLButtonElement): void {
         article.classList.add('post--card');
 
         const img = document.createElement('img');
+        img.classList.add('border-radius-small');
         const imagePath = `/src/images/${post.imgSrc}`;
         console.log('Attempting to load image:', imagePath);
         console.log('Available images:', Object.keys(images));
