@@ -17,7 +17,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         aboutme: resolve(__dirname, 'aboutme.html'),
-        featuredPost: resolve(__dirname, 'featured-post.html'),
+        featuredPost: resolve(__dirname, 'featured-article.html'),
       },
       output: {
         dir: 'dist',
