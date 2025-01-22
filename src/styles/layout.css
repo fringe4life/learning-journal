@@ -5,28 +5,52 @@
 	display: grid;
 	column-gap: var(--gap);
 	/* effectively the 0px column are equivalent to . in grid-areas */
-	grid-template-columns: [full-width-start] 0px [content-start] auto [content-end] 0px [full-width-end];
+	grid-template-columns:
+		[full-width-start] 0px
+		[content-start] 0px
+		[content-smaller-start] auto
+		[content-smaller-end] 0px
+		[content-end] 0px
+		[full-width-end];
 }
 
-.main-grid {
+.main-grid,
+.subgrid {
 	/* applies full-width --if-- is an immediate child of one of the grid containers */
 	& > .full {
 		grid-column: full-width;
+	}
+	& > .content-small {
+		grid-column: content-smaller;
+	}
+}
+
+.inner-grid {
+	display: grid;
+	grid-template-columns:
+		[full-width-start] 0px
+		[content-text-start] 1fr
+		[content-text-end] 0px
+		[full-width-end];
+	gap: .75rem var(--gap);
+	& > * {
+		grid-column: content-text;
 	}
 }
 
 /* makes sure no one tries to apply full to .grid-autofit... */
 .grid-autofit,
-.main-grid {
+.main-grid,
+.subgrid {
 	& > .content {
 		grid-column: content;
 	}
 }
 
-/* .subgrid {
+.subgrid {
 	display: grid;
 	grid-template-columns: subgrid;
-} */
+}
 
 .flex-container-nav {
 	@mixin space-between;

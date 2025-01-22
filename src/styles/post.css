@@ -17,12 +17,18 @@
 		object-position: center;
 	}
 	/* adds variable spacing  */
-	img,
-	p:first-of-type {
-		margin-bottom: 0.875em;
-	}
+
 	h2 {
 		margin-bottom: 0.5em;
+	}
+}
+
+.post--card,
+.post {
+	img,
+	p,
+	h2 {
+		margin-bottom: 1.25rem;
 	}
 }
 /* uses custom media query */

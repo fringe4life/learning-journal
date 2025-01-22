@@ -55,20 +55,12 @@ a:has(> .featured-post) {
 .featured-post {
 	container: featured / inline-size;
 	/* grid to show featured post date, h2, body */
-	display: grid;
-	grid-template-columns:
-		[full-width-start] 0px
-		[content-text-start] 1fr
-		[content-text-end] 0px
-		[full-width-end];
+
 	/* the 1fr is the space above the text, 0.01fr is for small gap beneath paragraph */
 	grid-template-rows: 1fr auto auto auto 0.01fr;
 	align-items: end;
-	gap: .75rem var(--gap);
+
 	/* uses the selector .featured-post and selects all immediate descendents */
-	& > * {
-		grid-column: content-text;
-	}
 }
 /* make the line height smaller as otherwise when the h2 wraps to the next line enormous gap between the wrapped text */
 @container featured (width < 70ch) {
@@ -77,6 +69,7 @@ a:has(> .featured-post) {
 		line-height: 1.15;
 	}
 }
+/* responsive design */
 @media (--medium-width) {
 	.main-grid {
 		--background-img-height: 320px;

@@ -1,3 +1,5 @@
+@import "./custom-media-queries.css";
+
 .invert {
 	filter: invert(1);
 }
@@ -21,4 +23,20 @@
 */
 .border-radius-small {
 	border-radius: 3px; /* Adjust this value as needed */
+}
+/* used to widen the columns */
+/* interesting utility class */
+@media (--aboutme-mobile) {
+	.widen {
+		grid-column: full-width;
+	}
+	.wider {
+		grid-column: content;
+	}
+}
+
+.paragraph-spacing {
+	p {
+		margin-bottom: 1em;
+	}
 }
