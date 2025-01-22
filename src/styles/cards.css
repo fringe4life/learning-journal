@@ -9,9 +9,12 @@
 		border: none;
 		justify-self: center;
 		background-color: inherit;
+		padding: .3em;
+		border-radius: 3px;
 		&:active,
 		&:hover {
-			background-color: red;
+			background-color: var(--font-color);
+			color: white;
 		}
 		&[disabled] {
 			background-color: gray;

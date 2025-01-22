@@ -15,7 +15,9 @@ export default defineConfig({
     },
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'), // Specify the entry point
+        main: resolve(__dirname, 'index.html'),
+        aboutme: resolve(__dirname, 'aboutme.html'),
+        featuredPost: resolve(__dirname, 'featured-post.html'),
       },
       output: {
         dir: 'dist',
@@ -41,5 +43,6 @@ export default defineConfig({
   esbuild: {
     legalComments: 'none',
     target: 'es2021',
+    drop: ['console', 'debugger'],
   }
 })

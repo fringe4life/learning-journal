@@ -1,8 +1,15 @@
 @import "mixins.css";
 @import "custom-media-queries.css";
+
+a:has(> .featured-post) {
+	/* feature post link */
+	text-decoration: none;
+	color: inherit;
+	transition: color 0.2s ease-in-out;
+}
+
 /* typography */
 .featured-post {
-	container: featured / inline-size;
 	color: var(--font-color, #fff);
 	h2,
 	h1 {
@@ -40,6 +47,7 @@
 
 /* layout */
 .featured-post {
+	container: featured / inline-size;
 	/* grid to show featured post date, h2, body */
 	display: grid;
 	grid-template-columns: [full-width-start] 0px [content-start] 1fr [content-end] 0px [full-width-end];

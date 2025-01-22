@@ -1,7 +1,24 @@
-@custom-media --greater-one-column (width > calc(310px + (2 * 1.25em)));
-@custom-media --two-columns (calc(310px + (2 * 1.25em)) < width <= calc(2 * 310px + (3 * 1.25em)));
-@custom-media --three-columns (width > calc(2 * 310px + (3 * 1.25em)));
+/* Convert px to rem (assuming base font size of 16px) */
+/* 310px = 19.375rem */
 
-@custom-media --medium-width (width > calc(2 * 310px + (2 * 1.25em) + 1em));
+/* Custom media queries */
+@custom-media --greater-one-column (width > calc(19.375rem + (2 * 1.25em)));
+@custom-media --two-columns (calc(19.375rem + (2 * 1.25em)) < width <= calc(2 * 19.375rem + (3 * 1.25em)));
+@custom-media --three-columns (width > calc(2 * 19.375rem + (3 * 1.25em)));
 
-@custom-media --large-width (width > calc(2 * 310px + (3 * 1.25em) + 2em));
+@custom-media --medium-width (width > calc(2 * 19.375rem + (2 * 1.25em) + 1em));
+
+@custom-media --large-width (width > calc(2 * 19.375rem + (3 * 1.25em) + 2em));
+
+/* Existing custom media queries... */
+/* Non-custom media queries from other files */
+@custom-media --mobile (width <= 37.5rem); /* 600px */
+@custom-media --tablet (37.5rem < width <= 48rem); /* 600px - 768px */
+@custom-media --desktop (width > 48rem); /* > 768px */
+
+/* Additional breakpoints if needed */
+@custom-media --small-mobile (width <= 20rem); /* 320px */
+@custom-media --large-desktop (width > 64rem); /* 1024px */
+
+/* Breakpoint from aboutme.css */
+@custom-media --aboutme-mobile (width < 50rem); /* 800px */

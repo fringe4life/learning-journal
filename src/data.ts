@@ -8,11 +8,11 @@ export interface Post {
 
 export const posts: Post[] = [
     {
-        imgSrc: "image1.jpg", // Just the filename, not the full path
+        imgSrc: "blog-1.png", // Just the filename, not the full path
         imgAlt: "Alt text for image 1",
-        title: "Blog Post 1",
+        title: "Community-driven learning",
         date: "July 23, 2022",
-        body: "I'm excited to start a new learning journey as a Scrimba Bootcamp student! After several months of learning in the Frontend Developer Career Path."
+        body: "I'm excited to start a new learning journey as a Scrimba student! After several months of learning in the Frontend Developer Career Path."
     },
     {
         imgSrc: "blog-2.png",

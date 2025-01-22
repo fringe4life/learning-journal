@@ -12,36 +12,57 @@ function assertNever(x: string): never {
     throw new Error(`You have added a new button but not added it to the switch statement: ${x}`);
 }
 
-document.addEventListener('click', (e)=> {
-    const target = e.target as HTMLElement
-    if(isButton(target)) {
-        // we now know this is a button
-        switch(target.id){
+document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    console.log('Clicked element:', target);
+    console.log('Clicked element tag:', target.tagName);
+    console.log('Clicked element id:', target.id);
+
+    if (isButton(target)) {
+        console.log('Is button, entering switch statement');
+        switch (target.id) {
             case 'view-more':
-                renderPosts(posts,target)
+                console.log('View more button clicked');
+                renderPosts(posts, target);
                 break;
             default:
-                assertNever(target.id)
+                console.log('Unknown button id:', target.id);
+                assertNever(target.id);
         }
-    } //else clicked on something else
-    else {
-        console.log(`clicked on ${target.tagName} element, not a button.`);
+    } else {
+        console.log(`Clicked on ${target.tagName} element, not a button.`);
     }
-})
+});
 
 
-function renderPosts(posts: Post[],button: HTMLButtonElement): void {
+function renderPosts(posts: Post[], button: HTMLButtonElement): void {
+    console.log('renderPosts function called');
     //need to create the HTML elements and append them to the DOM
-    const postsContainer = document.querySelector('.posts');
-    if (!postsContainer) return;
+    const postsContainer = document.querySelector('.cards');
+    if (!postsContainer) {
+        console.log('Posts container not found');
+        return;
+    }
+    console.log('Posts container found');
     button.disabled = true;
+    console.log('Button disabled');
     for (const post of posts) {
+        console.log('Creating post:', post.title);
         const article = document.createElement('article');
-        article.classList.add('post');
+        article.classList.add('post--card');
 
         const img = document.createElement('img');
         const imagePath = `/src/images/${post.imgSrc}`;
-        img.src = (images[imagePath] as { default: string }).default;
+        console.log('Attempting to load image:', imagePath);
+        console.log('Available images:', Object.keys(images));
+
+        if (imagePath in images) {
+            img.src = (images[imagePath] as { default: string }).default;
+            console.log('Image loaded successfully:', img.src);
+        } else {
+            console.error('Image not found:', imagePath);
+            img.src = 'path/to/placeholder-image.jpg'; // Replace with an actual placeholder image path
+        }
         img.alt = post.imgAlt;
 
         const dateP = document.createElement('p');
@@ -57,11 +78,13 @@ function renderPosts(posts: Post[],button: HTMLButtonElement): void {
         article.appendChild(dateP);
         article.appendChild(titleH2);
         article.appendChild(bodyP);
+
         // inserts before the button..
         postsContainer.insertBefore(article, button);
+        console.log('Post inserted:', post.title);
     }
 
-    console.log('Rendering posts...');
+    console.log('All posts rendered');
 }
 
 /**
@@ -69,8 +92,10 @@ function renderPosts(posts: Post[],button: HTMLButtonElement): void {
  * @param elem is the HTML element to check 
  * @returns that the element is a button
  */
-function isButton(elem: HTMLElement): elem is HTMLButtonElement{
-   return  elem.tagName.toLowerCase() === 'button'
+function isButton(elem: HTMLElement): elem is HTMLButtonElement {
+   console.log('Element tag:', elem.tagName.toLowerCase());
+   console.log('Is button:', elem.tagName.toLowerCase() === 'button');
+   return elem.tagName.toLowerCase() === 'button';
 }
 
 // practise
