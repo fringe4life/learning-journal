@@ -5,6 +5,7 @@ a:has(> .featured-post) {
 	/* feature post link */
 	text-decoration: none;
 	color: inherit;
+
 	transition: color 0.2s ease-in-out;
 }
 
@@ -55,14 +56,18 @@ a:has(> .featured-post) {
 	container: featured / inline-size;
 	/* grid to show featured post date, h2, body */
 	display: grid;
-	grid-template-columns: [full-width-start] 0px [content-start] 1fr [content-end] 0px [full-width-end];
-	/* the 1fr is the space above the text */
-	grid-template-rows: 1fr auto auto auto;
+	grid-template-columns:
+		[full-width-start] 0px
+		[content-text-start] 1fr
+		[content-text-end] 0px
+		[full-width-end];
+	/* the 1fr is the space above the text, 0.01fr is for small gap beneath paragraph */
+	grid-template-rows: 1fr auto auto auto 0.01fr;
 	align-items: end;
 	gap: .75rem var(--gap);
 	/* uses the selector .featured-post and selects all immediate descendents */
 	& > * {
-		grid-column: content;
+		grid-column: content-text;
 	}
 }
 /* make the line height smaller as otherwise when the h2 wraps to the next line enormous gap between the wrapped text */
@@ -77,12 +82,3 @@ a:has(> .featured-post) {
 		--background-img-height: 320px;
 	}
 }
-/* @container featured (width > 70ch) {
-	.featured-post h1 {
-		line-height: 1.15;
-		
-		grid-column: conten;
-		align-self: center;
-		translate: -60px;
-	}
-} */

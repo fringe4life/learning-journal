@@ -19,3 +19,6 @@
 /* Example conversion for 54px:
    54px / 16px = 3.375em
 */
+.border-radius-small {
+	border-radius: 3px; /* Adjust this value as needed */
+}
