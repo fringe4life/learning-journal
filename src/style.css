@@ -28,7 +28,7 @@
 			rgba(0, 0, 0, 0.5),
 			rgba(0, 0, 0, 0.7)
 		);
-		--cards-my-large: 2.25em 0;
+		--cards-my-large: 2.25em;
 		--uppercase: uppercase;
 		--character-max-width: 60ch;
 		--font-color: #151515;

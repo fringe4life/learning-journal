@@ -5,7 +5,11 @@
 }
 
 .my-large {
-	margin: var(--cards-my-large); /* 34px converted to em (34px / 16px = 2.125em) */
+	margin: var(--cards-my-large) 0; /* 34px converted to em (34px / 16px = 2.125em) */
+}
+
+.mb-large {
+	margin-bottom: var(--cards-my-large);
 }
 
 .circle {
